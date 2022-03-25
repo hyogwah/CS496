@@ -1,0 +1,87 @@
+
+Mutable Data Structures in OCaml
+
+Up until now, we've learned:
+ARITH
+LET
+PROC
+REC
+
+There are typically three ways to introduce mutable/in-place update:
+
+- References (pointers)
+- Mutable fields in records
+- Arrays
+
+References
+a) creating a reference:
+ref e: evaluates e and then allocates its value on the heap
+
+b) dereferencing a reference
+!e: evaluates e to get back a reference and then dereferences the reference
+(!e = *e)
+
+let y = ref 2;;     \\ this is creating a reference
+y;;                 \\ int ref = {contents = 2}
+!y;;                \\ int = 2      same thing as *y
+
+c) Assignment (address)
+e1 := e2
+
+y := !y + 1;;       \\ y is now !y (2) + 1
+
+d) begin...end
+Sequencing operation
+
+being y:=!y+1; !y end;;
+
+With references in the picture, we can write examples of "stateful"/"impure" functions.
+(aka.. (simple) objects)
+
+ex..
+let c = let state = ref 0
+    in fun () ->
+            begin 
+                state := !state+1;
+                !state
+            end;;
+    
+c <- ProcVal("()", begin...end, ExtendEnv())
+
+ex...
+
+let c = let state = ref 0 
+in
+{ add = (fun i -> state := !state+i);
+  dec = (fun () -> state := !state -1);
+  read = (fun () -> !state)};;
+
+c <- RecordVal(
+    add = ProcVal("i", state:=..., [ state <- RefVal 0])
+    dec = ProcVal("()", state:=..., [state <- RefVal 0])
+    read = ProcVal("()", ... , [state <- RefVal 0] )
+)
+
+0 < NumVal 5
+this is a form of alialsing
+
+type stackint = { push: int -> unit; pop: unit -> unit;
+top : unit -> int};;
+
+let s = let state = ref []
+in {
+push = (fun i -> state:= i::!state);
+pop = (fun () -> state := List.tl(!state));
+top = (fun () -> List.hd(!state))};;
+
+for i=1 to 100 do s.push i done;;
+
+
+let c =
+let state = ref 0
+in let rec this(state) =
+{ add = (fun i -> state := !state+i);
+  dec = (fun () -> (this state).add (-1));
+  read = (fun () -> !state)
+}
+in this state;;
