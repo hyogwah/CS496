@@ -1,0 +1,34 @@
+01/31/22
+Brief overview of OCaml intro
+
+Programs are expressions
+To run a program is called evaluating an expression
+An expression must have a type for OCaml to evalute it
+If OCaml cannot assign it a type, then it rejects
+Expressions:
+int, char, bool, strings
+
+Tuple: int*bool
+Functions: int -> int
+
+Polymorphic functions (functions that have a polymorphic type) 
+A polymorphic is a type that has one or more occurences of type variables
+
+Higher-order function ex: let twice f x = f (f x);;
+functions that consume other functions as arguments
+
+Recursion over natural numbers
+    
+Recursion over lists
+
+Exercises:
+
+reverse
+last
+has_duplicates
+sub_list
+concatenate
+
+ex: let f i = 7
+For all types 'a, 'a -> int is the type of function
+"a is any type", a is a variable or indeterminate

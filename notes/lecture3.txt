@@ -1,0 +1,17 @@
+Today:
+Lists
+Recursion - on numbers - on lists
+Standard higher-order function scheme (map, filter, fold)
+
+[1;2;3];; int list type
+[true;false;false];; list of bool
+[1;2] @ [3;4];; list concat
+[1;2] @ [];; 
+[true;false] @ [];;
+
+Important operation on lists called "cons"
+
+1 :: [2;3];; ==> [1;2;3]
+
+List.hd => head of the list
+List.tl => return list head sliced off

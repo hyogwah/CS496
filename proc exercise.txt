@@ -1,0 +1,17 @@
+Exercise 2.4.3. Write down the result of evaluating the expressions below. 
+Depict the full details of the closure, including the environment. 
+Use the tabular notation seen in class to depict the environment.
+
+• proc (x) { x-11 }
+Ok (ProcVal ("x", Sub (Var "x", Int 11), EmptyEnv))
+
+• proc (x) { let y=2 in x }
+Ok (ProcVal ("x", Let ("y", Int 2, Var "x"), EmptyEnv))
+
+• let a=1 in proc (x) { x }
+Ok (ProcVal ("x", Var "x", ExtendEnv ("a", NumVal 1, EmptyEnv)))
+
+• let a=1 in let b=2 in proc (x) { x }
+
+• let f=(let b=2 in proc (x) { x }) in f • proc (x) { proc (y) { x-y } }
+

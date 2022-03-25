@@ -1,0 +1,43 @@
+OCaml (very) basics
+
+Programs are called expressions.
+Every expression has a (unique) type. Example of types:
+- int
+- float
+- char
+- string
+- bool
+Example of compound types:
+- function types
+- tuple types
+
+OCaml checks that an expression is typable before running it.
+
+I/O Examples
+if 1>2 then 3 else 4;;
+(type) int = 4
+
+if 1>2 then "a" else "bb";;
+(type) string = "bb"
+
+if 1>2 then 'a' else 'b';;
+(type) char = 'b'
+
+if 1>2 then 1 else "b";;
+error. both branches must be of same type
+
+if (if 1>2 then 1 else 2)>3 then "a" else "b";;
+string = "b"
+^you can nest if statements like this, different types but still works
+
+"hello"="hello";;
+bool = true
+
+"hello"=="hello"";;
+bool = false
+
+if 1 then "a" else "b";;
+error. 1 is not a boolean, it is a int
+
+x+1;;
+x undefined

@@ -1,0 +1,54 @@
+fun i -> i+1;;
+let f = fun i -> i+1;; is the same as
+let f i = i+1;;
+
+(1,2);; pair of ints
+(1,true);; pair of int, bool
+( (fun i -> i+1),  true);; pair of function (int -> int), bool
+
+////////// sample expressions
+1. bool
+let e1 = true
+
+2. int * int
+
+3. bool -> int
+
+4. (int * int) -> bool
+
+5. int -> (int * int)
+
+6. (bool -> bool) * int
+
+Example: provide an expression of type
+7. boot -> string
+let e7 = fun i -> if i then "a" else "b";;
+let e7 i = if i then "a" else "b";;
+
+(* Topic on Polymorphism *);; (**) is a comment
+let f i = 7;; (* Type of f? 'a -> int  *);; -> 'a means any variable representable 
+f 2;; f "hello";; f true;; f 'a';; f f;;
+
+A polymorphic type is a type that has one or more occurences of a type variable.
+A polymorphic function is a function whose type is polymorphic.
+
+let f i = i;; (*   f(i) = i   *)
+> val f : 'a -> 'a = <fun>
+
+(1,2);; (true, "hello");; <= all tuples
+
+let f (x,y) = (x+y);; (*   int * int ->  int   *)
+
+let f (x,y) = (y,x);; (*   'a * 'b -> 'b  * 'a   *)
+
+///////////
+Higher-order functions
+
+let f g = if g 0 then "hello" else "bye";; (*  ( int -> bool ) -> string *)
+
+A higher-order function is a function that takes a function as input
+
+let f g x = g (g x)    (*  ( 'a ->  'a ) ->  'a  ->  'a  *)
+
+let seta i = i=2 || i=5;; (* is i in the subset of 2 or 5 *)
+seta is another way of defining a subset of int, in this case  {2,5}

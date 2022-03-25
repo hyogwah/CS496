@@ -1,0 +1,47 @@
+
+1. expr (ast.ml)
+Var of string
+Int of int
+
+Int 4
+Var "hello"
+parse "let x=2 in x+x"
+
+2. env
+EmptyEnv
+ExtendEnv of string*exp_val*env
+ExtendEnv ("hello", (NumVal 3), a);;
+
+3. exp_val
+NumVal of int
+BoolVal of bool
+PairVal of exp_val*exp_val
+
+NumVal 3;;
+interp;;
+
+4. exp_val result
+Ok of NumVal
+
+Ok(NumVal 3)
+
+5. int result
+Ok of int
+
+Ok(3)
+
+6. env result
+type 'a ea_result = env -> 'a result
+Ok of env
+
+Ok(EmptyEnv)
+Ok(ExtendEnv("x",NumVal 3, EmptyEnv))
+
+7. int ea_result
+int_of_numVal (NumVal 3);;
+
+8. exp_val ea_result 
+return (NumVal 3);;
+
+9. env ea_result
+return (EmptyEnv);;

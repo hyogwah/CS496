@@ -1,0 +1,49 @@
+LET NOTES 2/16
+---
+Examples of expressions in this new langauge.
+
+let x=27
+in if zero?(x) then 1 else 2
+
+Just like for every language extension, we address the following items:
+
+* Syntax: 
+- Concrete
+- Abstract
+* Semantics (meaning of an expression, or else, how to evaluate expressions)
+- Spec 
+    + Results
+    + Evaluation judgements
+    + Evaluation rules
+- Implementation
+
+Results in ARITH
+a) Expressed value: integer
+b) Error
+    b.1) Division by zero
+
+# interp "zero?(7)";;
+
+Results in LET
+a) Expressed value: integer, booleans
+b) Error
+    b.1) Division by zero
+    b.2) Unbound variable
+    b.3) Expected a number (type error)
+    b.4) Expected a boolean (type error)
+
+# interp "x+2";;                ERROR b.2
+# interp "zero?(zero?(0))";;    ERROR b.3
+
+Evaluation judgements:
+e ⬇ r
+
+Add(Var "x", Int 2) ⬇ error
+e, env ⬇ rules
+
+where env is called an environment. An environment is just a mapping
+from variables to expressed values.
+
+Evaluation Rules:
+let x=2+2 in x+3, EmptyEnv ⬇ ???
+

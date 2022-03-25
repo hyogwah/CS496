@@ -1,0 +1,42 @@
+Summary of the topics we have covered:
+
+ARITH
+* Syntax
+- Concrete Syntax
+- Abstract Syntax
+
+* Semantics
+- Spec
+    + Results
+    + Evaluation judgements
+    + Evaluation rules
+- Implementation
+
+LET
+Highlights
+Syntax:
+    - Variables
+    - zero?(e)
+    - if e1 then e2 else e3
+    - let id=e1 in e2
+
+Semantics
+- The notion of environment
+- The presence of variables in the syntax and the
+corresponding notion of environment in the semantics
+- Booleans.
+
+PROC
+- Syntax
+    + proc (x) {x+1}    Function declaration
+    + (f 2)             Application
+
+Semantics
+    - What is the value of proc (x) {x + 1} ??
+    let f = proc (x) { x + 1 }
+    in (f 2) + (f 3)
+    => returns 7
+
+    The value of a function is a closure. A closure is a triple
+    that consists of (id, e, env)
+ 

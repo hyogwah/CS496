@@ -1,0 +1,186 @@
+# dune ut
+# OCAMLPARAM: unset
+# Workspace root: /Users/ericsong/Desktop/CS_496/hw3_stub
+$ /usr/bin/getconf _NPROCESSORS_ONLN > /var/folders/3w/nl9lh24n6tb1lpvfzbtgqvl80000gn/T/dunee32829.output 2> /dev/null
+# Auto-detected concurrency: 8
+# disable binary cache
+$ /opt/homebrew/bin/ocamlc.opt -config > /var/folders/3w/nl9lh24n6tb1lpvfzbtgqvl80000gn/T/dune752bc7.output
+# Dune context:
+#  { name = "default"
+#  ; kind = "default"
+#  ; profile = Dyn
+#  ; merlin = true
+#  ; for_host = None
+#  ; fdo_target_exe = None
+#  ; build_dir = "default"
+#  ; toplevel_path = Some External "/Users/ericsong/.opam/default/lib/toplevel"
+#  ; ocaml_bin = External "/opt/homebrew/bin"
+#  ; ocaml = Ok External "/Users/ericsong/.opam/default/bin/ocaml"
+#  ; ocamlc = External "/opt/homebrew/bin/ocamlc.opt"
+#  ; ocamlopt = Ok External "/opt/homebrew/bin/ocamlopt.opt"
+#  ; ocamldep = Ok External "/opt/homebrew/bin/ocamldep.opt"
+#  ; ocamlmklib = Ok External "/opt/homebrew/bin/ocamlmklib.opt"
+#  ; env =
+#      map
+#        { "DUNE_OCAML_HARDCODED" : "/Users/ericsong/.opam/default/lib"
+#        ; "DUNE_OCAML_STDLIB" : "/opt/homebrew/lib/ocaml"
+#        ; "DUNE_SOURCEROOT" : "/Users/ericsong/Desktop/CS_496/hw3_stub"
+#        ; "INSIDE_DUNE" :
+#            "/Users/ericsong/Desktop/CS_496/hw3_stub/_build/default"
+#        ; "OCAMLFIND_IGNORE_DUPS_IN" :
+#            "/Users/ericsong/Desktop/CS_496/hw3_stub/_build/install/default/lib"
+#        ; "OCAMLPATH" :
+#            "/Users/ericsong/Desktop/CS_496/hw3_stub/_build/install/default/lib"
+#        ; "OCAMLTOP_INCLUDE_PATH" :
+#            "/Users/ericsong/Desktop/CS_496/hw3_stub/_build/install/default/lib/toplevel"
+#        ; "OCAML_COLOR" : "always"
+#        ; "OPAMCOLOR" : "always"
+#        }
+#  ; findlib_path = [ External "/Users/ericsong/.opam/default/lib" ]
+#  ; arch_sixtyfour = true
+#  ; natdynlink_supported = true
+#  ; supports_shared_libraries = true
+#  ; ocaml_config =
+#      { version = "4.12.0"
+#      ; standard_library_default = "/opt/homebrew/lib/ocaml"
+#      ; standard_library = "/opt/homebrew/lib/ocaml"
+#      ; standard_runtime = "the_standard_runtime_variable_was_deleted"
+#      ; ccomp_type = "cc"
+#      ; c_compiler = "clang"
+#      ; ocamlc_cflags = [ "-O2"; "-fno-strict-aliasing"; "-fwrapv" ]
+#      ; ocamlc_cppflags = [ "-D_FILE_OFFSET_BITS=64"; "-D_REENTRANT" ]
+#      ; ocamlopt_cflags = [ "-O2"; "-fno-strict-aliasing"; "-fwrapv" ]
+#      ; ocamlopt_cppflags = [ "-D_FILE_OFFSET_BITS=64"; "-D_REENTRANT" ]
+#      ; bytecomp_c_compiler =
+#          [ "clang"
+#          ; "-O2"
+#          ; "-fno-strict-aliasing"
+#          ; "-fwrapv"
+#          ; "-D_FILE_OFFSET_BITS=64"
+#          ; "-D_REENTRANT"
+#          ]
+#      ; bytecomp_c_libraries = [ "-lm"; "-lpthread" ]
+#      ; native_c_compiler =
+#          [ "clang"
+#          ; "-O2"
+#          ; "-fno-strict-aliasing"
+#          ; "-fwrapv"
+#          ; "-D_FILE_OFFSET_BITS=64"
+#          ; "-D_REENTRANT"
+#          ]
+#      ; native_c_libraries = [ "-lm" ]
+#      ; cc_profile = []
+#      ; architecture = "arm64"
+#      ; model = "default"
+#      ; int_size = 63
+#      ; word_size = 64
+#      ; system = "macosx"
+#      ; asm = [ "clang"; "-c"; "-Wno-trigraphs" ]
+#      ; asm_cfi_supported = true
+#      ; with_frame_pointers = false
+#      ; ext_exe = ""
+#      ; ext_obj = ".o"
+#      ; ext_asm = ".s"
+#      ; ext_lib = ".a"
+#      ; ext_dll = ".so"
+#      ; os_type = "Unix"
+#      ; default_executable_name = "a.out"
+#      ; systhread_supported = true
+#      ; host = "aarch64-apple-darwin20.3.0"
+#      ; target = "aarch64-apple-darwin20.3.0"
+#      ; profiling = false
+#      ; flambda = false
+#      ; spacetime = false
+#      ; safe_string = true
+#      ; exec_magic_number = "Caml1999X029"
+#      ; cmi_magic_number = "Caml1999I029"
+#      ; cmo_magic_number = "Caml1999O029"
+#      ; cma_magic_number = "Caml1999A029"
+#      ; cmx_magic_number = "Caml1999Y029"
+#      ; cmxa_magic_number = "Caml1999Z029"
+#      ; ast_impl_magic_number = "Caml1999M029"
+#      ; ast_intf_magic_number = "Caml1999N029"
+#      ; cmxs_magic_number = "Caml1999D029"
+#      ; cmt_magic_number = "Caml1999T029"
+#      ; natdynlink_supported = true
+#      ; supports_shared_libraries = true
+#      ; windows_unicode = false
+#      }
+#  }
+$ (cd _build/default && /opt/homebrew/bin/ocamldep.opt -modules -impl src/ds.ml) > _build/default/src/.proc.objs/ds.ml.d
+$ (cd _build/default && /opt/homebrew/bin/ocamldep.opt -modules -impl src/interp.ml) > _build/default/src/.proc.objs/interp.ml.d
+$ (cd _build/default && /opt/homebrew/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -bin-annot -I src/.proc.objs/byte -no-alias-deps -opaque -open Proc -o src/.proc.objs/byte/proc__Ds.cmo -c -impl src/ds.ml)
+> File "src/ds.ml", lines 119-126, characters 27-28:
+> 119 | ...........................function
+> 120 |   | NumVal n -> "NumVal " ^ string_of_int n
+> 121 |   | BoolVal b -> "BoolVal " ^ string_of_bool b
+> 122 |   | UnitVal  -> "UnitVal"
+> 123 |   | ProcVal(par,body,env) -> "ProcVal("^ par ^","^Ast.string_of_expr
+> 124 |                                body^", "^string_of_env' env ^")"    
+> 125 |   | ListVal(_evs) -> "ListVal"
+> 126 |   | TreeVal(_t) -> "TreeVal"
+> Warning 8 [partial-match]: this pattern-matching is not exhaustive.
+> Here is an example of a case that is not matched:
+> RecordVal _
+$ (cd _build/default && /opt/homebrew/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -bin-annot -I src/.proc.objs/byte -no-alias-deps -opaque -open Proc -o src/.proc.objs/byte/proc__Interp.cmo -c -impl src/interp.ml)
+> File "src/interp.ml", line 126, characters 4-5:
+> 126 |   | _ -> failwith "implement me"
+>           ^
+> Warning 11 [redundant-case]: this match case is unused.
+> File "src/interp.ml", lines 20-126, characters 2-32:
+>  20 | ..match e with
+>  21 |   | Int(n) ->
+>  22 |     return @@ NumVal n
+>  23 |   | Var(id) ->
+>  24 |     apply_env id
+> ...
+> 123 |       extend_env id2 (TreeVal(left)) >>+
+> 124 |       extend_env id3 (TreeVal(right)) >>+
+> 125 |       eval_expr nodecase
+> 126 |   | _ -> failwith "implement me"
+> Warning 8 [partial-match]: this pattern-matching is not exhaustive.
+> Here is an example of a case that is not matched:
+> Unpair (_, _, _, _)
+> File "src/interp.ml", line 76, characters 9-11:
+> 76 |   | Cons(e1, e2) -> failwith "implement me"
+>               ^^
+> Warning 27 [unused-var-strict]: unused variable e1.
+> File "src/interp.ml", line 76, characters 13-15:
+> 76 |   | Cons(e1, e2) -> failwith "implement me"
+>                   ^^
+> Warning 27 [unused-var-strict]: unused variable e2.
+> File "src/interp.ml", line 77, characters 6-10:
+> 77 |   | Hd(e1) ->  failwith "implement me"
+>            ^^^^
+> Warning 27 [unused-var-strict]: unused variable e1.
+> File "src/interp.ml", line 78, characters 6-10:
+> 78 |   | Tl(e1) ->  failwith "implement me"
+>            ^^^^
+> Warning 27 [unused-var-strict]: unused variable e1.
+> File "src/interp.ml", line 81, characters 29-31:
+> 81 |       sequence(List.map(fun (e1, e2) -> 
+>                                   ^^
+> Warning 27 [unused-var-strict]: unused variable e1.
+> File "src/interp.ml", line 83, characters 47-49:
+> 83 |       return @@ RecordVal (List.map2 (fun (e1, e2) item -> (e1, item)) fs help)
+>                                                     ^^
+> Warning 27 [unused-var-strict]: unused variable e2.
+> File "src/interp.ml", line 103, characters 9-13:
+> 103 |   | Tuple(es) ->  failwith "implement me"
+>                ^^^^
+> Warning 27 [unused-var-strict]: unused variable es.
+> File "src/interp.ml", line 104, characters 12-15:
+> 104 |   | Untuple(ids,e1,e2) ->  failwith "implement me"
+>                   ^^^
+> Warning 27 [unused-var-strict]: unused variable ids.
+> File "src/interp.ml", line 104, characters 16-18:
+> 104 |   | Untuple(ids,e1,e2) ->  failwith "implement me"
+>                       ^^
+> Warning 27 [unused-var-strict]: unused variable e1.
+> File "src/interp.ml", line 104, characters 19-21:
+> 104 |   | Untuple(ids,e1,e2) ->  failwith "implement me"
+>                          ^^
+> Warning 27 [unused-var-strict]: unused variable e2.
+$ (cd _build/default && /opt/homebrew/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -a -o src/proc.cma src/.proc.objs/byte/proc.cmo src/.proc.objs/byte/proc__Ast.cmo src/.proc.objs/byte/proc__Parser.cmo src/.proc.objs/byte/proc__Lexer.cmo src/.proc.objs/byte/proc__Ds.cmo src/.proc.objs/byte/proc__Interp.cmo)
+$ (cd _build/default && /opt/homebrew/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -24 -g -bin-annot -I src/.utop/.utop.eobjs/byte -I /Users/ericsong/.opam/default/lib/bytes -I /Users/ericsong/.opam/default/lib/camomile -I /Users/ericsong/.opam/default/lib/camomile/default_config -I /Users/ericsong/.opam/default/lib/camomile/dyn -I /Users/ericsong/.opam/default/lib/camomile/lib_default -I /Users/ericsong/.opam/default/lib/camomile/library -I /Users/ericsong/.opam/default/lib/charInfo_width -I /Users/ericsong/.opam/default/lib/findlib -I /Users/ericsong/.opam/default/lib/lambda-term -I /Users/ericsong/.opam/default/lib/lwt -I /Users/ericsong/.opam/default/lib/lwt/unix -I /Users/ericsong/.opam/default/lib/lwt_log -I /Users/ericsong/.opam/default/lib/lwt_log/core -I /Users/ericsong/.opam/default/lib/lwt_react -I /Users/ericsong/.opam/default/lib/mew -I /Users/ericsong/.opam/default/lib/mew_vi -I /Users/ericsong/.opam/default/lib/mmap -I /Users/ericsong/.opam/default/lib/ocplib-endian -I /Users/ericsong/.opam/default/lib/ocplib-endian/bigstring -I /Users/ericsong/.opam/default/lib/react -I /Users/ericsong/.opam/default/lib/result -I /Users/ericsong/.opam/default/lib/seq -I /Users/ericsong/.opam/default/lib/trie -I /Users/ericsong/.opam/default/lib/utop -I /Users/ericsong/.opam/default/lib/zed -I /opt/homebrew/lib/ocaml/compiler-libs -I /opt/homebrew/lib/ocaml/threads -I src/.proc.objs/byte -no-alias-deps -o src/.utop/.utop.eobjs/byte/dune__exe__Utop.cmo -c -impl src/.utop/utop.ml-gen)
+$ (cd _build/default && /opt/homebrew/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -24 -g -o src/.utop/utop.exe -output-complete-exe /opt/homebrew/lib/ocaml/compiler-libs/ocamlcommon.cma /opt/homebrew/lib/ocaml/compiler-libs/ocamlbytecomp.cma /opt/homebrew/lib/ocaml/compiler-libs/ocamltoplevel.cma /Users/ericsong/.opam/default/lib/findlib/findlib.cma /Users/ericsong/.opam/default/lib/findlib/findlib_top.cma /Users/ericsong/.opam/default/lib/result/result.cma /Users/ericsong/.opam/default/lib/lwt/lwt.cma /opt/homebrew/lib/ocaml/unix.cma -I /opt/homebrew/lib/ocaml /opt/homebrew/lib/ocaml/bigarray.cma -I /opt/homebrew/lib/ocaml /Users/ericsong/.opam/default/lib/mmap/mmap.cma /Users/ericsong/.opam/default/lib/ocplib-endian/ocplib_endian.cma /Users/ericsong/.opam/default/lib/ocplib-endian/bigstring/ocplib_endian_bigstring.cma /opt/homebrew/lib/ocaml/threads/threads.cma -I /opt/homebrew/lib/ocaml /Users/ericsong/.opam/default/lib/lwt/unix/lwt_unix.cma -I /Users/ericsong/.opam/default/lib/lwt/unix /Users/ericsong/.opam/default/lib/react/react.cma /Users/ericsong/.opam/default/lib/lwt_react/lwt_react.cma /Users/ericsong/.opam/default/lib/camomile/default_config/camomileDefaultConfig.cma /Users/ericsong/.opam/default/lib/camomile/library/camomileLibrary.cma /Users/ericsong/.opam/default/lib/camomile/lib_default/camomileLibraryDefault.cma /Users/ericsong/.opam/default/lib/camomile/dyn/camomileLibraryDyn.cma /Users/ericsong/.opam/default/lib/camomile/camomile_yuge.cma /Users/ericsong/.opam/default/lib/charInfo_width/charInfo_width.cma /Users/ericsong/.opam/default/lib/zed/zed.cma /Users/ericsong/.opam/default/lib/lwt_log/core/lwt_log_core.cma /Users/ericsong/.opam/default/lib/lwt_log/lwt_log.cma /Users/ericsong/.opam/default/lib/trie/trie.cma /Users/ericsong/.opam/default/lib/mew/mew.cma /Users/ericsong/.opam/default/lib/mew_vi/mew_vi.cma /Users/ericsong/.opam/default/lib/lambda-term/lambda_term.cma -I /Users/ericsong/.opam/default/lib/lambda-term /Users/ericsong/.opam/default/lib/utop/uTop.cma src/proc.cma src/.utop/.utop.eobjs/byte/dune__exe__Utop.cmo -linkall -warn-error -31)

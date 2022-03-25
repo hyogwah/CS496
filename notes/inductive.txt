@@ -1,0 +1,25 @@
+A means of defining sets that
+1. Describes how to generate its elements 
+    => Derivation
+2. Comes equpped with a technique for proving properties of its elements 
+    => Structural Induction
+3. Comes equipped with a technique for defining functions over its elements 
+    => Structural Recursion
+
+All inductive definitions require specficying two elements
+1. A universe
+    => In programming language the universe is typically specified by giving an alphabet
+    and then taking the universe to be the set of all words from that alphabet
+2. The smallest subset of the universe that satisfies certain conditions
+
+example:
+Sigma = { ( , ) , s , z } <= called an alphabet
+Universe = Sigma^* <= all the words over the alphabet
+
+S = {z, s(z), s(s(z)), ...}
+    U
+    {s, s(s), s(s(s)), ...}
+
+
+<S> ::= z       S generates z
+<S> ::= s(<S>)      Parser 
