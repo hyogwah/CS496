@@ -1,0 +1,70 @@
+
+Types
+-----
+New language called CHECKED
+- Syntax
+    + Concrete
+    + Abstract
+- Semantics
+    + Spec
+    * Type systems
+    + Implementation
+
+
+3 : int
+3+x : ???
+
+Type environment : a (partial) function that applies types to variables \Gamma
+Type judgement: \Gamma |- e: t
+    read as follows, "Expression e has type t under type environment \Gamma"
+
+    ex. { x : int } |- 3+x : int
+
+    Some type judgements are valid and others are not.
+
+        { x : bool } |- 3+x: int    is a well-formed type judgement, but it's not valid
+
+    - Typing rules
+    Similar to what we did with evaluations
+
+---------- TConst
+ \Gamma |- n:int
+
+
+ \Gamma(x) = t
+---------- TVar
+ \Gamma |- n:int
+
+e1:int e2:int
+---------- TPlus
+ \Gamma |- e1 + e2 : int
+
+ e : bool
+---------- TZero
+ \Gamma |- zero?(e): bool
+
+                                                      {AXIOM}                      {AXIOM}
+                                               --------------------TVar     -------------------- TVar
+                          {AXIOM}              { x:int , y:int } |- x:int  { x:int , y:int } |- y:int
+                     ------------------ TConst ----------------------------TSub
+    {AXIOM}           { x:int } |- 4 : int      { x:int , y:int } |- x-y : int    
+-------------TConst  ---------------------------------------- TLet
+{} |- 3 : int         { x:int } |- let y = 4 in x-y : int  
+---------------------------------------- TLet
+{} |- let x=3 in let y = 4 in x-y : int
+
+Judgement is derivable. Expresison is typable.
+
+
+
+
+
+
+
+{ x:int, y:bool } |- y:bool { x:int, y:bool } |- x:int { x:int, y:bool } |- x-1
+---------------------------------------------- TIf
+{ x: int, y : bool } |- if y then x else x-1
+---------------------------------------------------- TProc
+{ x: int, y : bool } |- { proc ( y: bool) { if y then x else x-1 }}
+---------------------------------------------------------------------- TProc
+{ x: int } |- proc ( x: int ) { proc ( y: bool) { if y then x else x-1 }} : int -> bool -> int

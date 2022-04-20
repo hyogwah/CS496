@@ -1,0 +1,32 @@
+FACTORIAL
+
+pseudo:
+if x == 0
+then return 1
+else return x * fact(x-1)
+
+REC lang:
+interp "
+let one=1
+in letrec fact(x) =
+        if zero?(x)
+        then one
+        else x * (fact(x-1))
+in (fact 6)";;
+
+using proc:
+interp "
+let prod = proc (x) { proc (y) { x*y }}
+in letrec f(n) = if zero?(n) then 1 else ((prod n) (f (n-1))) in (f 6)";;
+
+
+FIB
+
+pseudo:
+def recur_fibo(n):
+   if n <= 1:
+       return n
+   else:
+       return(recur_fibo(n-1) + recur_fibo(n-2))
+
+REC ocaml:

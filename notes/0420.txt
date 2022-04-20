@@ -1,0 +1,15 @@
+
+
+Typing rules for Pairs
+---------------------------
+
+
+
+\Gamma |- e1 : s     \Gamma |- e1 : t 
+------------------------- TPair
+\Gamma |- pair(e1, e2) : s*t
+
+------------------------- TUnpair
+\Gamma |- unpair(id1, id2) = e1 in e2: ??
+
+

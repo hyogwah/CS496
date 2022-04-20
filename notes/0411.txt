@@ -1,0 +1,63 @@
+April 11th Lecture on 
+
+Type systems
+-------------
+
+* Typing environments : partial function from variables
+to types. \ Gamma, \Gamma', etc..
+
+* Typing judgements :
+\Gamma |- e : t 
+
+"e has type t under typing environment \Gamma"
+
+* Typing rules
+
+Example of a valid/derivable typing judgement
+{ x : int, y : bool } |- if y then 1 else x : int
+
+Example of a invalid/nonderivable typing judgement
+{ x : int, y : int } |- if y then 1 else x : int
+
+Today:
+* Typing rule for letrec
+* Go over an example
+* An exercise involving typing derivation
+
+We need a type annotation :s
+
+\Gamma , id: s->r , par: s |- e1: r   \Gamma, id: s->r |- e2: t
+----------------------------------------------------------- TLetRec
+   \Gamma |- letrec id(par:s): r = e1 in e2 : t
+
+letrec f(x) = if zero?(x) then 1 else x*(f (x-1)) in (f 5) 
+
+
+
+
+
+Let \Gamma be the typing env {f: int -> int, x: int}
+
+
+
+                                                                                                    ----------------TVar    -----------TConst
+                                                                                    {AXIOM}             \Gamma |-x:int   \Gamma |- 1:int
+                                                                            -----------------------TVar--------------------TSub
+    {AXIOM}                                                 {AXIOM}            \Gamma |- f: int->int   \Gamma |- x-1:int
+------------------TVar                                ------------------TVar   -------------------------------TApp
+\Gamma |- x: int                    {AXIOM}             \Gamma |- x:int         \Gamma |- (f (x-1)):int
+---------------TZero        -------------------TInt      --------------------------TProd
+\Gamma|- zero?(x) : bool     \Gamma |- 1 : int            \Gamma |- x*(f (x-1)) : int          *
+----------------------------------------------------------------------------TIf            -----------------------------------------------TZero
+    \Gamma |- if zero?(x) then 1 else x*(f (x-1))                                              \Gamma |- zero?((f 5)) : bool
+---------------------------------------------------------------------------- TLetRec
+{} |- letrec f(x) = if zero?(x) then 1 else x*(f (x-1)) in zero?((f 5)) : bool
+
+
+
+---------------------TVar ------------------TConst
+\Gamma |- f:int -> int   \Gamma |- 5:int
+-------------------- TApp
+\Gamma |- (f 5) :int
+------------------------------TZero
+\Gamma |- zero?((f 5)) : bool
